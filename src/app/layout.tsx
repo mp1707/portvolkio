@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+import { FolderIcon } from "@/components/icons/Folder";
+import { CameraIcon } from "@/components/icons/Camera";
+import { BurgerIcon } from "@/components/icons/Burger";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +18,77 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        {/* navbar here */}
-        <body>{children}</body>
+      <body>
+        <div className="container mx-auto">
+          {/* navbar */}
+          <div className="navbar bg-base-100 border-b-neutral-600 border-b">
+            <div className="flex-1">
+              <Link href="/" className="btn btn-ghost text-xl">
+                daisyUI
+              </Link>
+            </div>
+            <div className="flex-none">
+              <ul className="menu menu-horizontal px-1 flex items-center gap-5">
+                <li>
+                  <label
+                    htmlFor="my-drawer-2"
+                    className="drawer-button lg:hidden"
+                  >
+                    <BurgerIcon />
+                  </label>
+                </li>
+                <li>
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <Image
+                        alt="avatar"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                        width={40}
+                        height={40}
+                      />
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* sidebar */}
+          <div className="drawer lg:drawer-open">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content w-full flex flex-col items-center justify-start p-5">
+              {/* pages */}
+              {children}
+            </div>
+            <div className="drawer-side">
+              <label
+                htmlFor="my-drawer-2"
+                aria-label="close sidebar"
+                className="drawer-overlay"
+              ></label>
+              <ul className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
+                {/* Sidebar content here */}
+                <li className="flex flex-row items-center">
+                  <Link href={"/gallery"} className="w-full">
+                    <CameraIcon />
+                    Galerie
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/albums" className="w-full">
+                    <FolderIcon />
+                    Alben
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
