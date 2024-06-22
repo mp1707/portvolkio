@@ -9,6 +9,7 @@ export function UploadButton() {
   return (
     <CldUploadButton
       uploadPreset="utga8sqo"
+      onClick={() => console.log("uploading")}
       className="btn btn-primary"
       onSuccess={(result) =>
         setTimeout(() => {
