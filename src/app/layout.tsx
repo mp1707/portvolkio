@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
-import { FolderIcon } from "@/components/icons/Folder";
-import { CameraIcon } from "@/components/icons/Camera";
-import { BurgerIcon } from "@/components/icons/Burger";
+import { FolderIcon } from "@/app/components/icons/Folder";
+import { CameraIcon } from "@/app/components/icons/Camera";
+import { BurgerIcon } from "@/app/components/icons/Burger";
 
 export const metadata: Metadata = {
   title: "Create Next App",

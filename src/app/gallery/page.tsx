@@ -20,19 +20,21 @@ export default async function GalleryPage({}: Props) {
   console.log(results);
 
   return (
-    <section className="w-full flex flex-col gap-5">
-      <div className="flex items-center justify-between">
+    <section className="w-full flex flex-col items-center gap-5">
+      <div className="flex items-center w-full justify-between">
         <h1 className="text-xl font-bold">Galerie</h1>
         <UploadButton />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {results &&
-          results.resources.map((result) => (
-            <CloudinaryImage
-              key={result.public_id}
-              public_id={result.public_id}
-            />
-          ))}
+      <div className="columns-3xs w-full">
+        <div className="flex flex-col items-center gap-5 w-full">
+          {results &&
+            results.resources.map((result) => (
+              <CloudinaryImage
+                key={result.public_id}
+                public_id={result.public_id}
+              />
+            ))}
+        </div>
       </div>
     </section>
   );

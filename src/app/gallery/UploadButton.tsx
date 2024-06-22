@@ -1,5 +1,5 @@
 "use client";
-import { UploadIcon } from "@/components/icons/Upload";
+import { UploadIcon } from "@/app/components/icons/Upload";
 import { CldUploadButton } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import React from "react";
